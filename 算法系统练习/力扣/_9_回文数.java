@@ -21,10 +21,22 @@ package 数据结构与算法.算法系统练习.力扣;
  */
 public class _9_回文数 {
   public static void main(String[] args) {
-
+    System.out.println(new _9_回文数().isPalindrome2(9121));
   }
   public boolean isPalindrome(int x) {
-
-    return true;
+    String s = new StringBuilder(x + "").reverse().toString();
+    return s.equals(String.valueOf(x));
+  }
+  public boolean isPalindrome2(int x) {
+    if (x < 0) {
+      return false;
+    }
+    int z = x;
+    int n = 0;
+    while (x != 0) {
+      n = n * 10 + x % 10;
+      x /= 10;
+    }
+    return n == z;
   }
 }
